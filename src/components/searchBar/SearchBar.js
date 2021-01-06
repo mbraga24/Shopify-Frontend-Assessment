@@ -1,11 +1,17 @@
 import React from "react";
+import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 
+import _ from 'lodash'
 import './Styles.scss';
 
 const SearchBar = () => {
+
   return (
     <div className="searchBar">
-      <h1>SearchBar</h1>
+      <Search 
+        className="searchBar__field" 
+        placeholder="Search Movies" 
+      />
     </div>
   )
 }

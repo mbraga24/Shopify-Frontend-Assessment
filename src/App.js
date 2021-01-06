@@ -3,6 +3,7 @@ import Nominations from './components/nominations/Nominations';
 import SearchBar from './components/searchBar/SearchBar';
 import SearchResults from './components/searchResults/SearchResults';
 
+import 'semantic-ui-css/semantic.min.css'
 import './styles/App.scss';
 
 function App() {
