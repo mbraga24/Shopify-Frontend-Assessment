@@ -8,9 +8,8 @@ import './styles/App.scss';
 function App() {
   return (
     <div>
-      <div id="MainWrapper">
+      <div id="mainWrapper">
         <SearchBar/>
-        
         <SearchResults/>
         <Nominations/>
       </div>
