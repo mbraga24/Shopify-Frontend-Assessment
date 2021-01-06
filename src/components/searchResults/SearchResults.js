@@ -4,7 +4,9 @@ import './Styles.scss';
 
 const SearchResults = () => {
   return (
-    <h1>SearchResults</h1>
+    <div className="searchResults">
+      <h1>SearchResults</h1>
+    </div>
   )
 }
 

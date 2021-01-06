@@ -4,7 +4,9 @@ import './Styles.scss';
 
 const Nominations = () => {
   return (
-    <h1>Nominations</h1>
+    <div className="nominations">
+      <h1>Nominations</h1>
+    </div>
   )
 }
 

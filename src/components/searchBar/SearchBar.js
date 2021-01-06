@@ -4,7 +4,9 @@ import './Styles.scss';
 
 const SearchBar = () => {
   return (
-    <h1>SearchBar</h1>
+    <div className="searchBar">
+      <h1>SearchBar</h1>
+    </div>
   )
 }
 
