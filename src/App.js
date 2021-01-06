@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Nominations from './components/nominations/Nominations';
+import SearchBar from './components/searchBar/SearchBar';
+import SearchResults from './components/searchResults/SearchResults';
+
+import './styles/App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div id="MainWrapper">
+        <SearchBar/>
+        
+        <SearchResults/>
+        <Nominations/>
+      </div>
     </div>
   );
 }
