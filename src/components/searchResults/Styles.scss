@@ -6,9 +6,24 @@
   &__alignItems {
     display: flex;
     justify-content: space-between;
+    // border: 2px solid red;
   }
+
   &__listContent {
     display: flex;
     justify-content: flex-start;
+  }
+
+  &__poster {
+    padding: 3px;
+    border: 3px solid black;
+  }
+
+  &__info {
+    padding-left: 10px;
+  }
+  
+  &__Button {
+    height: 35px;
   }
 }
