@@ -1,3 +1,10 @@
+@import './utils/breakpoints';
+
 body{
   background-color: aliceblue;
+}
+
+#mainWrapper {
+  max-width: $tablet;
+  margin: 40px auto 80px auto;
 }
