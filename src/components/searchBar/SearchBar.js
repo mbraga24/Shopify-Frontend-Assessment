@@ -1,16 +1,29 @@
-import React from "react";
-import { Search } from 'semantic-ui-react'
+import React, { useState, useEffect } from "react";
+import { Form } from 'semantic-ui-react'
 
 import './Styles.scss';
 
-const SearchBar = () => {
+const SearchBar = ({ findMovies }) => {
 
+  const [ searchTerm, setSearchTerm ] = useState("")
+
+  useEffect(() => {
+    findMovies(searchTerm)
+  }, [searchTerm])
+
+  const handleInput = e => {
+    setSearchTerm(e.target.value)
+  }
+
+  console.log("searchTerm -->", searchTerm)
   return (
     <div className="searchBar">
-      <Search 
-        className="searchBar__field" 
-        placeholder="Search Movies" 
-      />
+      <Form className="searchBar__field">
+        <Form.Input  
+          placeholder="Search Movies"
+          onChange={handleInput} 
+        />
+      </Form>
     </div>
   )
 }
