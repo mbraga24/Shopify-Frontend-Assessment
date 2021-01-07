@@ -26,7 +26,7 @@ function App() {
     setShowMessage(true)
     setTimeout(() => {
       dismissMessage()
-    }, [3000])
+    }, [5000])
   }, [])
   
   const findMovies = useCallback((term) => {
@@ -72,28 +72,29 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       <div id="mainWrapper">
-        {
-          showMessage && 
-          <Message 
-            header={"All set!"} 
-            message={"Thank you for choosing your top 5 movies. If you change your mind you can always remove a movie from the list and pick a new one."} 
-            dismissMessage={dismissMessage}
+        <p className="App__title">Pick Your Top 5 Movies</p>
+        <SearchBar 
+          findMovies={findMovies} 
+          icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
+          {
+            showMessage && 
+            <Message 
+              header={"All set!"} 
+              message={"It seems like you have all your top 5 movies. You can always remove from your list and pick another another one."} 
+              dismissMessage={dismissMessage}
             />
-        }
+          }
         <Nominations 
           nominatedList={nominatedList} 
           removeFromNominatedList={removeFromNominatedList}
           icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
-        <SearchBar 
-          findMovies={findMovies} 
-          icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
         <SearchResults 
           movieResults={movieResults} 
           addToNominatedList={addToNominatedList} 
           disableBtns={disableBtns} 
-          />
+          icon={<FontAwesomeIcon icon={faTape} size="3x" />} />
       </div>
     </div>
   );

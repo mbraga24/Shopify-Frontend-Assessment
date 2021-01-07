@@ -1,10 +1,10 @@
 import React from "react";
 import ButtonProp from '../buttonProp/ButtonProp';
-import { List, Image, Divider } from 'semantic-ui-react'
+import { Grid, Card, Image, Divider } from 'semantic-ui-react'
 
 import './Styles.scss';
 
-const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns }) => {
+const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, icon }) => {
 
   const list = JSON.parse(localStorage.getItem("list"));
 
@@ -18,20 +18,12 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns }) =
 
   const displayMovies = () => {
     return movieResults.map(mv => (
-      <List key={`${mv.Title}--${mv.Poster}`} divided relaxed>
-        <List.Item>
-          <div className="searchResults__alignItems">
-            <List.Content className="searchResults__listContent">
-              <Image 
-                src={mv.Poster !== "N/A" ? mv.Poster : "./assets/movie_placeholder.png"} 
-                className="searchResults__poster"
-                size='tiny' 
-                verticalAlign='middle' />
-              <div className="searchResults__info">
-                <List.Header as='a'>{mv.Title}</List.Header>
-                <List.Description as='a'>Year: {mv.Year}</List.Description>
-              </div>
-            </List.Content>
+      <Grid.Column>
+        <Card
+          image={mv.Poster !== "N/A" ? mv.Poster : "./assets/video-placeholder.jpg"}
+          header={mv.Title}
+          meta={mv.Year}
+          extra={
             <ButtonProp 
               color='blue' 
               btnName={"Nominate"}
@@ -39,17 +31,29 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns }) =
               handleSubmit={() => addMovie(mv)} 
               disable={disableBtns ? true : checkMovieInList(mv.imdbID)}
             />
-          </div>
-        </List.Item>
-      </List>
+          }
+        />
+      </Grid.Column>
     ));
   }
 
+  const resultsBody = true && displayMovies()
+  const resultsHeader = true && 
+  <>
+    <div className="searchResults__header">
+      <span className="searchResults__title">Movies</span>
+    </div>
+    <Divider/>
+  </>
+
   return (
     <div className="searchResults" >
-      <h1 className="searchResults__title">Results</h1>
-      <Divider/>
-      {displayMovies()}
+      {resultsHeader}
+      <Grid>
+        <Grid.Row stackable columns={5}>
+          {resultsBody}
+        </Grid.Row>
+      </Grid>
     </div>
   )
 }

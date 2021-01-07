@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Divider, Card, Placeholder } from 'semantic-ui-react'
+import { Grid, Image, Divider, Card, Placeholder } from 'semantic-ui-react'
 import ButtonProp from "../buttonProp/ButtonProp";
 
 import './Styles.scss';
@@ -15,19 +15,27 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
 
   const displayNominatedList = () => {
     return nominatedList.map(mv => (
+      <Grid.Column>
         <Card key={`${mv.Title}--${mv.Poster}`}>
+          <Placeholder>
+            {localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />}
+          </Placeholder>
           <Card.Content>
-            <Placeholder>
-              {localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />}
-            </Placeholder>
+            <Card.Header>{mv.Title}</Card.Header>
+            <Card.Meta>
+              <span className='date'>{mv.Year}</span>
+            </Card.Meta>
           </Card.Content>
-          <ButtonProp
-            color='red' 
-            btnName={"Remove"}
-            icon="cancel"
-            handleSubmit={() => removeMovie(mv)} 
-          />
+          <Card.Content extra>
+            <ButtonProp
+              color='red' 
+              btnName={"Remove"}
+              icon="cancel"
+              handleSubmit={() => removeMovie(mv)} 
+            />
+          </Card.Content>
         </Card>
+      </Grid.Column>
     ));
   }
 
@@ -45,14 +53,23 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
     }, 1000)
   }, [localStorageLoad])
 
-  const displayBody = showList ? displayNominatedList() : <span className="nominations__title">Your nominations</span>
+  const nominationBody = showList && displayNominatedList() 
+  const nominationHeader = showList && 
+  <>
+  <div className="nominations__header">
+    {icon} <span className="nominations__title">Your nominations</span>
+  </div>
+  <Divider/>
+  </>
 
   return (
     <div className="nominations">
-      <Card.Group className="nominations__elements" itemsPerRow={6}>
-        {icon}{displayBody}
-      </Card.Group>
-      <Divider/>
+      {nominationHeader}
+      <Grid>
+        <Grid.Row className="nominations__elements" columns={5}>
+          {nominationBody}
+        </Grid.Row>
+      </Grid>
     </div>
   )
 }
