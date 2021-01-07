@@ -32,17 +32,19 @@ function App() {
 
   const addToNominatedList = movie => {
     // console.log("movie --->", movie)
-    const keyName = movie.Title.split(" ").join("")
+    // const keyName = movie.Title.split(" ").join("")
+
     setNominatedList([...nominatedList, movie])
-    console.log(keyName)
+    localStorage.setItem(nominatedList, JSON.stringify({ nominatedList }))
+    // console.log(keyName)
     // console.log("nominatedList --->", nominatedList)
-    if (!localStorage.getItem(keyName)) {
-      console.log(!localStorage.getItem(keyName))
-      const title = movie.Title
-      const year = movie.Year
-      const poster = movie.Poster
-      localStorage.setItem(keyName, JSON.stringify({ Title: title, Poster: poster, Year: year }))
-    } 
+    // if (!localStorage.getItem(keyName)) {
+      // localStorage.setItem(keyName, JSON.stringify({ Title: title, Poster: poster, Year: year }))
+      //   console.log(!localStorage.getItem(keyName))
+      //   const title = movie.Title
+    //   const year = movie.Year
+    //   const poster = movie.Poster
+    // } 
   }
 
   return (
