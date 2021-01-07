@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Nominations from './components/nominations/Nominations';
 import SearchBar from './components/searchBar/SearchBar';
 import SearchResults from './components/searchResults/SearchResults';
@@ -14,6 +14,13 @@ function App() {
   const [ movieResults, setMovieResults ] = useState([])
   const [ nominatedList, setNominatedList ] = useState([])
   // const [ loading, setLoading ] = useState(false)
+
+  useEffect(() => {
+    if (localStorage.getItem("list")) {
+      let nominatedList = JSON.parse(localStorage.getItem("list")) 
+      setNominatedList([...nominatedList])
+    } 
+  }, [])
   
   const findMovies = useCallback((term) => {
     // setLoading(true)
@@ -30,29 +37,37 @@ function App() {
     })
   }, [])
 
-  const addToNominatedList = movie => {
-    // console.log("movie --->", movie)
-    // const keyName = movie.Title.split(" ").join("")
+  const removeFroNominatedList = movie => {
+    console.log("movie --->", movie.imdbID)
+    if (nominatedList.includes(movie)) {
+      const filteredList = nominatedList.filter(mv => mv.imdbID !== movie.imdbID)
+      setNominatedList([...filteredList])
+      localStorage.setItem("list", JSON.stringify([...nominatedList]))
+    }
+  }
 
-    setNominatedList([...nominatedList, movie])
-    localStorage.setItem(nominatedList, JSON.stringify({ nominatedList }))
-    // console.log(keyName)
-    // console.log("nominatedList --->", nominatedList)
-    // if (!localStorage.getItem(keyName)) {
-      // localStorage.setItem(keyName, JSON.stringify({ Title: title, Poster: poster, Year: year }))
-      //   console.log(!localStorage.getItem(keyName))
-      //   const title = movie.Title
-    //   const year = movie.Year
-    //   const poster = movie.Poster
-    // } 
+  const addToNominatedList = movie => {
+    if (!nominatedList.includes(movie)) {
+      setNominatedList([...nominatedList, movie])
+      // console.log("nominatedList -->", nominatedList)
+      localStorage.setItem("list", JSON.stringify([...nominatedList]))
+    }
   }
 
   return (
     <div>
       <div id="mainWrapper">
-        <Nominations nominatedList={nominatedList} addToNominatedList={addToNominatedList} icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
-        <SearchBar findMovies={findMovies} icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
-        <SearchResults movieResults={movieResults} addToNominatedList={addToNominatedList} />
+        <Nominations 
+          nominatedList={nominatedList} 
+          removeFroNominatedList={removeFroNominatedList}
+          icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
+        <SearchBar 
+          findMovies={findMovies} 
+          icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
+        <SearchResults 
+          movieResults={movieResults} 
+          nominatedList={nominatedList}
+          addToNominatedList={addToNominatedList} />
       </div>
     </div>
   );
