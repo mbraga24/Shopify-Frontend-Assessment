@@ -1,27 +1,24 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Image, Divider, Card, Placeholder } from 'semantic-ui-react'
 import ButtonProp from "../buttonProp/ButtonProp";
 
 import './Styles.scss';
 
-const Nominations = ({ nominatedList = [], removeFroNominatedList, icon }) => {
-  
-  const [ displayBody, setDisplayBody ]   = useState([])
+const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
+
+  const [ showList, setShowList ]   = useState(false)
   const [ localStorageLoad, setLocalStorageLoad ] = useState(true)
-  const displayArchive = mv => {
-    return localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />
-  }
 
   const removeMovie = movie => {
-    removeFroNominatedList(movie)
+    removeFromNominatedList(movie)
   }
 
-  const displayNominatedList = useCallback(() => {
+  const displayNominatedList = () => {
     return nominatedList.map(mv => (
         <Card key={`${mv.Title}--${mv.Poster}`}>
           <Card.Content>
             <Placeholder>
-              {displayArchive(mv)}
+              {localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />}
             </Placeholder>
           </Card.Content>
           <ButtonProp
@@ -32,15 +29,15 @@ const Nominations = ({ nominatedList = [], removeFroNominatedList, icon }) => {
           />
         </Card>
     ));
-  }, [nominatedList, localStorageLoad])
+  }
 
   useEffect(() => {
     if (nominatedList.length > 0) {
-      setDisplayBody(displayNominatedList())
+      setShowList(true)
     } else {
-      setDisplayBody(<span className="nominations__title">Your nominations</span>)
+      setShowList(false)
     }
-  }, [nominatedList.length, displayNominatedList])
+  }, [nominatedList.length])
 
   useEffect(() => {
     setTimeout(() => {
@@ -48,9 +45,11 @@ const Nominations = ({ nominatedList = [], removeFroNominatedList, icon }) => {
     }, 1000)
   }, [localStorageLoad])
 
+  const displayBody = showList ? displayNominatedList() : <span className="nominations__title">Your nominations</span>
+
   return (
     <div className="nominations">
-      <Card.Group className="nominations__elements" itemsPerRow={5}>
+      <Card.Group className="nominations__elements" itemsPerRow={6}>
         {icon}{displayBody}
       </Card.Group>
       <Divider/>

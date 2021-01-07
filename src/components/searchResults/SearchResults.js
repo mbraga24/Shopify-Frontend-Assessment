@@ -4,13 +4,12 @@ import { List, Image, Divider } from 'semantic-ui-react'
 
 import './Styles.scss';
 
-const SearchResults = ({ movieResults = [], nominatedList, addToNominatedList }) => {
+const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns }) => {
 
-  // const list = JSON.parse(localStorage.getItem("list")
+  const list = JSON.parse(localStorage.getItem("list"));
 
-  const checkMovieInList = id => {
-    const list = JSON.parse(localStorage.getItem("list"));
-    return list.find(mv => mv.imdbID === id);
+  const checkMovieInList = movieId => {
+    return !!list.find(mv => mv.imdbID === movieId);
   }
 
   const addMovie = movie => {
@@ -37,8 +36,8 @@ const SearchResults = ({ movieResults = [], nominatedList, addToNominatedList })
               color='blue' 
               btnName={"Nominate"}
               icon="add"
-              disable={checkMovieInList(mv.imdbID)}
               handleSubmit={() => addMovie(mv)} 
+              disable={disableBtns ? true : checkMovieInList(mv.imdbID)}
             />
           </div>
         </List.Item>
