@@ -1,4 +1,27 @@
 .nominations {
-  border: 2px solid black;
+  // border: 2px solid black;
+  text-align: center;
+
+  &__title {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  &__picksWrapper {
+    // border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  &__pick {
+    margin-left: 200px;
+  }
+
+  &__elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 }

@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import Nominations from './components/nominations/Nominations';
 import SearchBar from './components/searchBar/SearchBar';
 import SearchResults from './components/searchResults/SearchResults';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAward, faTape, faFilm } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 import './styles/App.scss';
@@ -9,32 +12,45 @@ import './styles/App.scss';
 function App() {
 
   const [ movieResults, setMovieResults ] = useState([])
-
-  const fetchMovies = term => {
+  const [ nominatedList, setNominatedList ] = useState([])
+  // const [ loading, setLoading ] = useState(false)
+  
+  const findMovies = useCallback((term) => {
+    // setLoading(true)
     let searchTerm = term.split(" ").join("%20")
-
-    console.log("TERM -> ", searchTerm)
 
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=880b9cc1&s=${searchTerm}`)
     .then(r => r.json())
     .then(data => {
-      if (data.Response == "True") {
+      if (data.Response === "True") {
         setMovieResults(data.Search)
-        // displayMovies(data.Search)
       } else {
-        console.log("No movies found with that name")
+        console.log("NOT FOUND")
       }
     })
-  }
+  }, [])
 
-  console.log("movieResults", movieResults)
+  const addToNominatedList = movie => {
+    // console.log("movie --->", movie)
+    const keyName = movie.Title.split(" ").join("")
+    setNominatedList([...nominatedList, movie])
+    console.log(keyName)
+    // console.log("nominatedList --->", nominatedList)
+    if (!localStorage.getItem(keyName)) {
+      console.log(!localStorage.getItem(keyName))
+      const title = movie.Title
+      const year = movie.Year
+      const poster = movie.Poster
+      localStorage.setItem(keyName, JSON.stringify({ Title: title, Poster: poster, Year: year }))
+    } 
+  }
 
   return (
     <div>
       <div id="mainWrapper">
-        <SearchBar findMovies={fetchMovies} />
-        <SearchResults movieResults={movieResults}/>
-        <Nominations/>
+        <Nominations nominatedList={nominatedList} addToNominatedList={addToNominatedList} icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
+        <SearchBar findMovies={findMovies} icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
+        <SearchResults movieResults={movieResults} addToNominatedList={addToNominatedList} />
       </div>
     </div>
   );
