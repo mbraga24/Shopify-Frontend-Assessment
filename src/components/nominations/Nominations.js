@@ -42,6 +42,7 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
   useEffect(() => {
     if (nominatedList.length > 0) {
       setShowList(true)
+      console.log(nominatedList)
     } else {
       setShowList(false)
     }

@@ -7,7 +7,7 @@ import './Styles.scss';
 const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, icon, loading }) => {
 
   let resultsBody;
-  const list = JSON.parse(localStorage.getItem("list"));
+  const list = localStorage.getItem("list") ? JSON.parse(localStorage.getItem("list")) : []
 
   const checkMovieInList = movieId => {
     return !!list.find(mv => mv.imdbID === movieId);
