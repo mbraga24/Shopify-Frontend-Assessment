@@ -1,10 +1,10 @@
+@import '../../styles/utils/breakpoints';
+
 .searchResults {
   // border: 2px solid red;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   padding: 15px;
-  // overflow:scroll;
-  // overflow-x:hidden;
   
   &__header {
     display: flex;
@@ -16,25 +16,22 @@
     text-align: center;
     font-size: 45px;
   }
-  
-  &__alignItems {
-    display: flex;
-    justify-content: space-between;
-    // border: 2px solid red;
-  }
 
-  &__listContent {
-    display: flex;
-    justify-content: flex-start;
-  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 190px);
+    grid-auto-rows: minmax(20px, auto);
+    row-gap: 1em;
+    column-gap: 1em;
+    justify-content: center; 
+    align-content: center;
 
-  &__poster {
-    padding: 3px;
-    border: 3px solid black;
-  }
+    @media only screen and(max-width: $tablet) {
+      grid-template-columns: repeat(3, 180px);
+    }
 
-  &__info {
-    padding-left: 10px;
+    @media only screen and(max-width: $mobile) {
+      grid-template-columns: repeat(1, 280px);
+    }
   }
-
 }
