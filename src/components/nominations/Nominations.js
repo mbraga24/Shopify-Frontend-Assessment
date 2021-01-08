@@ -16,7 +16,7 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
   const displayNominatedList = () => {
     return nominatedList.map(mv => (
       <Grid.Column>
-        <Card key={`${mv.Title}--${mv.Poster}`}>
+        <Card key={mv.imdbID}>
           <Placeholder>
             {localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />}
           </Placeholder>

@@ -18,8 +18,9 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, ico
 
   const displayMovies = () => {
     return movieResults.map(mv => (
-      <Grid.Column>
+      <Grid.Column key={mv.imdbID} className="searchResults__cardWrapper">
         <Card
+          className="searchResults__card"
           image={mv.Poster !== "N/A" ? mv.Poster : "./assets/video-placeholder.jpg"}
           header={mv.Title}
           meta={mv.Year}
@@ -49,11 +50,9 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, ico
   return (
     <div className="searchResults" >
       {resultsHeader}
-      <Grid>
-        <Grid.Row stackable columns={5}>
-          {resultsBody}
-        </Grid.Row>
-      </Grid>
+      <div className="searchResults__grid">
+        {resultsBody}
+      </div>
     </div>
   )
 }

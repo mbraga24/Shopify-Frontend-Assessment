@@ -18,7 +18,7 @@ const SearchBar = ({ findMovies, icon }) => {
   // console.log("searchTerm -->", searchTerm)
   return (
     <div className="searchBar">
-      {icon}
+      <span className="searchBar__icon">{icon}</span>
       <Form className="searchBar__field">
         <Form.Input  
           placeholder="Search Movies"
