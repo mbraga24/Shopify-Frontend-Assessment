@@ -28,7 +28,7 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
           </Card.Content>
           <Card.Content extra>
             <ButtonProp
-              color='red' 
+              color={"red"}
               btnName={"Remove"}
               icon="cancel"
               handleSubmit={() => removeMovie(mv)} 

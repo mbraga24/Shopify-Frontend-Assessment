@@ -4,12 +4,13 @@ import { Button, Icon } from 'semantic-ui-react'
 import './Styles.scss';
 
 const ButtonProp = ({ color, btnName, icon, handleSubmit, disable = false }) => {
+  console.log(color)
   return (
     <Button 
-    disabled={disable}
-    color={color} 
-    className="ButtonProp"
-    onClick={handleSubmit}
+      color={color}
+      disabled={disable}
+      className={`buttonProp`}
+      onClick={handleSubmit}
     >
       <Icon name={icon} />
       {btnName}

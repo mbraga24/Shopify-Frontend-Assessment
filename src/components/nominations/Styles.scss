@@ -1,5 +1,4 @@
 .nominations {
-  // border: 2px solid black;
   text-align: center;
 
   &__header {
@@ -22,5 +21,9 @@
 
   &__pick {
     margin-left: 200px;
+  }
+
+  &__btnColor {
+    color: red;
   }
 }

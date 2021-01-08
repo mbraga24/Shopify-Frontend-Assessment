@@ -6,7 +6,7 @@ import './Styles.scss';
 const ButtonProp = ({ header, message, dismissMessage }) => {
 
   const handleDismiss = () => {
-    dismissMessage()
+    dismissMessage();
   }
 
   return (

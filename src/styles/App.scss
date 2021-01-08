@@ -1,7 +1,8 @@
 @import './utils/breakpoints';
+@import './utils/colors';
 
 body{
-  background-color: aliceblue;
+  background-color: $the-white-wall-looks-dirty;
 }
 
 #mainWrapper {
@@ -10,13 +11,53 @@ body{
 }
 
 .App {
-  &__title {
-    font-size: 45px;
-    text-align: center;
     @media only screen and (max-width: $mobile) {
-      font-size: 40px;
-      font-weight: 600;
-      margin: 0px 15px 0px 15px
+      position: relative;
     }
+
+    &__title {
+      font-size: 45px;
+      text-align: center;
+      color: $pool-day;
+      @media only screen and (max-width: $mobile) {
+        font-size: 40px;
+        font-weight: 600;
+        margin: 0px 15px 0px 15px
+      }
+    }
+
+    &__upbtn {
+      display:none;
+      position:fixed;
+      right:10px;
+      bottom:10px;
+      cursor:pointer;
+      width:50px;
+      height:50px;
+      background-color: $batman-blue;
+      text-indent:-9999px;
+      -webkit-border-radius:60px;
+      -moz-border-radius:60px;
+      border-radius:60px;
+      @media only screen and (max-width: $mobile) {
+        display: block;
+      }
+    }
+
+  &__faAngleUp:hover {
+    top: -15px;
   }
+
+  &__faAngleUp {
+      font-size: 3.5rem;
+      width: 4rem;
+      height: 4rem;
+      text-align: center;
+      position: absolute;
+      top: -.2rem;
+      right: .7rem;
+      transition: all ease-in-out 250ms;
+      color: $the-white-wall-looks-dirty;
+  }
+
 }

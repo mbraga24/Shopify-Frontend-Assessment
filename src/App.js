@@ -5,7 +5,7 @@ import SearchResults from './components/searchResults/SearchResults';
 import Message from './components/message/Message';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAward, faTape, faFilm } from '@fortawesome/free-solid-svg-icons'
+import { faAward, faFilm, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 import './styles/App.scss';
@@ -16,7 +16,7 @@ function App() {
   const [ nominatedList, setNominatedList ] = useState([]);
   const [ showMessage, setShowMessage ] = useState(false);
   const [ disableBtns, setDisableBtns ] = useState(false)
-  // const [ loading, setLoading ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
 
   const dismissMessage = () => {
     setShowMessage(false)
@@ -30,13 +30,14 @@ function App() {
   }, [])
   
   const findMovies = useCallback((term) => {
-    // setLoading(true)
+    setLoading(true)
     let searchTerm = term.split(" ").join("%20");
 
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=880b9cc1&s=${searchTerm}`)
     .then(r => r.json())
     .then(data => {
       if (data.Response === "True") {
+        setLoading(false);
         setMovieResults(data.Search);
       } else {
         console.log("NOT FOUND");
@@ -53,10 +54,10 @@ function App() {
 
   useEffect(() => {
     if (nominatedList.length === 5) {
-      setDisableBtns(true)
-      displayMessage()
+      setDisableBtns(true);
+      displayMessage();
     } else {
-      setDisableBtns(false)
+      setDisableBtns(false);
     }
   }, [nominatedList, displayMessage])
 
@@ -90,12 +91,15 @@ function App() {
           nominatedList={nominatedList} 
           removeFromNominatedList={removeFromNominatedList}
           icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
-        <SearchResults 
+        <SearchResults
           movieResults={movieResults} 
           addToNominatedList={addToNominatedList} 
-          disableBtns={disableBtns} 
-          icon={<FontAwesomeIcon icon={faTape} size="3x" />} />
+          disableBtns={disableBtns}
+          icon={<FontAwesomeIcon icon={faAward} size="4x" />} 
+          loading={loading} />
       </div>
+
+      <span className='App__upbtn'><FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" /></span>
     </div>
   );
 }

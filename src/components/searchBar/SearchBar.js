@@ -5,17 +5,16 @@ import './Styles.scss';
 
 const SearchBar = ({ findMovies, icon }) => {
 
-  const [ searchTerm, setSearchTerm ] = useState("")
+  const [ searchTerm, setSearchTerm ] = useState("");
 
   useEffect(() => {
-    findMovies(searchTerm)
+    findMovies(searchTerm);
   }, [findMovies, searchTerm])
 
   const handleInput = e => {
-    setSearchTerm(e.target.value)
+    setSearchTerm(e.target.value);
   }
 
-  // console.log("searchTerm -->", searchTerm)
   return (
     <div className="searchBar">
       <span className="searchBar__icon">{icon}</span>

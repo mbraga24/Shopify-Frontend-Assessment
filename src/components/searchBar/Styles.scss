@@ -1,4 +1,5 @@
 @import '../../styles/utils/breakpoints';
+@import '../../styles/utils/colors';
 
 .searchBar {
   width: 100%;
@@ -26,9 +27,11 @@
     }
   }
 
-  @media only screen and (max-width: $mobile) { 
-    &__icon {
-      margin: auto 40%;
-    } 
+  &__icon {
+    color: $a-beautiful-blue-sky;
+    
+      @media only screen and (max-width: $mobile) { 
+        margin: auto 40%;
+      } 
   }
 }

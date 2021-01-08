@@ -1,15 +1,14 @@
 @import '../../styles/utils/breakpoints';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/colors';
 
 .searchResults {
-  // border: 2px solid red;
-  // width: 100%;
-  // height: 100%;
-  padding: 15px;
-  
   &__header {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15px;
+    color: $pool-day;
   }
 
   &__title {
@@ -17,7 +16,13 @@
     font-size: 45px;
   }
 
-  &__grid {
+  &__innerWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__gridContainer {
     display: grid;
     grid-template-columns: repeat(4, 190px);
     grid-auto-rows: minmax(20px, auto);
@@ -33,5 +38,12 @@
     @media only screen and(max-width: $mobile) {
       grid-template-columns: repeat(1, 280px);
     }
+  }
+
+  &__iconLoader {
+    width: 65px;
+    height: 65px;
+    margin: 100px auto;
+    @include spinAnimation(1s)
   }
 }
