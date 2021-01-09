@@ -4,8 +4,9 @@ import SearchBar from './components/searchBar/SearchBar';
 import SearchResults from './components/searchResults/SearchResults';
 import Message from './components/message/Message';
 
+import { animateScroll as scroll } from "react-scroll";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAward, faFilm, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faFilm, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 import './styles/App.scss';
@@ -19,9 +20,9 @@ function App() {
   const [ loading, setLoading ] = useState(false);
   const loader = <img className="App__iconLoader" alt="loading" src="./assets/loading.png" />
 
-  const scrollTop = () => {
-    window.scrollToTop(0, 0)
-  }
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   const dismissMessage = () => {
     setShowMessage(false)
@@ -80,15 +81,14 @@ function App() {
   return (
     <div className="App">
       <div id="mainWrapper">
-        <p className="App__title">Choose Your Top 5 Movies</p>
+        <p className="App__title" id="top">Choose Your Top 5 Movies</p>
         <SearchBar 
           findMovies={findMovies} 
           icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
         <Nominations 
           nominatedList={nominatedList} 
           removeFromNominatedList={removeFromNominatedList}
-          loader={loader} 
-           />
+          loader={loader} />
           {
             showMessage && 
             <Message 
@@ -101,11 +101,12 @@ function App() {
           addToNominatedList={addToNominatedList} 
           disableBtns={disableBtns}
           loading={loading} 
-          loader={loader} 
-           />
+          loader={loader} />
       </div>
 
-      <span className='App__upbtn' onClick={() => scrollTop()}><FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" /></span>
+      <span className='App__upbtn' onClick={scrollToTop}>
+        <FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" />
+      </span>
     </div>
   );
 }
