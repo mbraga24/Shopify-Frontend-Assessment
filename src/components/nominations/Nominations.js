@@ -1,52 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Image, Divider, Card, Placeholder } from 'semantic-ui-react'
-import ButtonProp from "../buttonProp/ButtonProp";
+import { Divider } from 'semantic-ui-react'
+import MovieCard from "../movieCard/MovieCard";
 
+import Carousel from 'react-elastic-carousel';
 import './Styles.scss';
 
-const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
+const Nominations = ({ nominatedList = [], removeFromNominatedList, icon, loader }) => {
 
   const [ showList, setShowList ]   = useState(false)
   const [ localStorageLoad, setLocalStorageLoad ] = useState(true)
 
+  const breakPoints = [
+    {width: 1, itemsToShow: 1},
+    {width: 538, itemsToShow: 2},
+    {width: 768, itemsToShow: 3},
+    {width: 1200, itemsToShow: 4}
+  ]
+
   const removeMovie = movie => {
     removeFromNominatedList(movie)
   }
+  
+  // {localStorageLoad ? loader : <Image src={mv.Poster} className="nominations__image" />}
 
   const displayNominatedList = () => {
-    return nominatedList.map(mv => (
-      <Grid.Column>
-        <Card key={mv.imdbID}>
-          <Placeholder>
-            {localStorageLoad ? <Placeholder.Image /> : <Image src={mv.Poster} />}
-          </Placeholder>
-          <Card.Content>
-            <Card.Header>{mv.Title}</Card.Header>
-            <Card.Meta>
-              <span className='date'>{mv.Year}</span>
-            </Card.Meta>
-          </Card.Content>
-          <Card.Content extra>
-            <ButtonProp
-              color={"red"}
-              btnName={"Remove"}
-              icon="cancel"
-              handleSubmit={() => removeMovie(mv)} 
-            />
-          </Card.Content>
-        </Card>
-      </Grid.Column>
+    return nominatedList.map(movie => (
+        <MovieCard 
+          key={movie.imdbID} 
+          movie={movie} 
+          movieAction={removeMovie}
+          btnName={"Remove"}
+          iconName={"cancel"}
+          loadReady={localStorageLoad} />
     ));
   }
 
   useEffect(() => {
     if (nominatedList.length > 0) {
       setShowList(true)
-      console.log(nominatedList)
     } else {
       setShowList(false)
     }
-  }, [nominatedList.length])
+  }, [nominatedList.length, nominatedList])
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,22 +50,19 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon }) => {
   }, [localStorageLoad])
 
   const nominationBody = showList && displayNominatedList() 
-  const nominationHeader = showList && 
-  <>
-  <div className="nominations__header">
-    {icon} <span className="nominations__title">Your nominations</span>
-  </div>
-  <Divider/>
-  </>
+  const nominationHeader = showList &&  <>
+        <div className="nominations__header">
+          <div className="nominations__icon">{icon}</div> <h2 className="nominations__title">Your nominations</h2>
+        </div>  
+        <Divider/>
+      </>
 
   return (
     <div className="nominations">
       {nominationHeader}
-      <Grid>
-        <Grid.Row className="nominations__elements" columns={5}>
-          {nominationBody}
-        </Grid.Row>
-      </Grid>
+      <Carousel breakPoints={breakPoints} className="nominations__carouselContainer" >
+        {nominationBody}
+      </Carousel>
     </div>
   )
 }

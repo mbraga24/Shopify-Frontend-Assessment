@@ -2,16 +2,19 @@ import React from "react";
 import { Divider } from 'semantic-ui-react'
 import MovieCard from '../movieCard/MovieCard'
 
+import Carousel from 'react-elastic-carousel';
 import './Styles.scss';
 
-const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, icon, loading }) => {
+const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, loading, loader }) => {
 
   let resultsBody;
-  const list = localStorage.getItem("list") ? JSON.parse(localStorage.getItem("list")) : []
 
-  const checkMovieInList = movieId => {
-    return !!list.find(mv => mv.imdbID === movieId);
-  }
+  const breakPoints = [
+    {width: 1, itemsToShow: 1},
+    {width: 538, itemsToShow: 2},
+    {width: 768, itemsToShow: 3},
+    {width: 1200, itemsToShow: 4}
+  ]
 
   const addMovie = mv => {
     addToNominatedList(mv);
@@ -22,28 +25,26 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, ico
       <MovieCard 
         key={movie.imdbID} 
         movie={movie} 
-        checkMovieInList={checkMovieInList}
-        addMovie={addMovie}
-        disableBtns={disableBtns}
-        />
+        movieAction={addMovie}
+        btnName={"Nominate"}
+        iconName={"add"}
+        disableBtns={disableBtns} />
     ));
   }
 
   if (loading) {
-    resultsBody = <img className="searchResults__iconLoader" alt="loading" src="./assets/loading.png" />;
+    resultsBody = loader;
   } else {
     resultsBody = 
-    <div className="searchResults__gridContainer">
+    <Carousel breakPoints={breakPoints} className="searchResults__carouselContainer" >  
       {displayMovies()}
-    </div>;
+    </Carousel>
   }
 
   return (
     <div className="searchResults" >
       <Divider/>
-      <div className="searchResults__innerWrapper">
-        {resultsBody}
-      </div>
+      {resultsBody}
     </div>
   )
 }

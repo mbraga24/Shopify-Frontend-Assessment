@@ -1,1 +1,5 @@
-@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
+
+.movieCard {  
+  @include areaOf(340px);
+}

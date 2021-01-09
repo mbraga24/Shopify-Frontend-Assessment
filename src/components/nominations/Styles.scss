@@ -1,10 +1,13 @@
+@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
+
 .nominations {
-  text-align: center;
+  height: 100%;
 
   &__header {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-bottom: 20px;
   }
 
   &__title {
@@ -12,18 +15,21 @@
     margin-left: 10px;
   }
 
-  &__picksWrapper {
-    // border: 2px solid black;
+  &__icon {
+    color: $a-beautiful-blue-sky;
+  }
+
+  &__carouselContainer {
+    height: 100%;
+  } 
+
+  &__image {
+    @include areaOf(340px);
+  }
+
+  &__card {
     display: flex;
     justify-content: center;
-    padding: 20px;
-  }
-
-  &__pick {
-    margin-left: 200px;
-  }
-
-  &__btnColor {
-    color: red;
+    align-items: center;
   }
 }

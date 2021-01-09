@@ -1,5 +1,4 @@
 @import '../../styles/utils/breakpoints';
-@import '../../styles/utils/mixins';
 @import '../../styles/utils/colors';
 
 .searchResults {
@@ -22,6 +21,10 @@
     align-items: center;
   }
 
+  &__carouselContainer {
+    height: 100%;
+  }
+
   &__gridContainer {
     display: grid;
     grid-template-columns: repeat(4, 190px);
@@ -38,12 +41,5 @@
     @media only screen and(max-width: $mobile) {
       grid-template-columns: repeat(1, 280px);
     }
-  }
-
-  &__iconLoader {
-    width: 65px;
-    height: 65px;
-    margin: 100px auto;
-    @include spinAnimation(1s)
   }
 }

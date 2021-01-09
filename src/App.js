@@ -79,6 +79,10 @@ function App() {
         <SearchBar 
           findMovies={findMovies} 
           icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
+        <Nominations 
+          nominatedList={nominatedList} 
+          removeFromNominatedList={removeFromNominatedList}
+          icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
           {
             showMessage && 
             <Message 
@@ -87,15 +91,10 @@ function App() {
               dismissMessage={dismissMessage}
             />
           }
-        <Nominations 
-          nominatedList={nominatedList} 
-          removeFromNominatedList={removeFromNominatedList}
-          icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
         <SearchResults
           movieResults={movieResults} 
           addToNominatedList={addToNominatedList} 
           disableBtns={disableBtns}
-          icon={<FontAwesomeIcon icon={faAward} size="4x" />} 
           loading={loading} />
       </div>
 

@@ -1,3 +1,4 @@
+@import './utils/mixins';
 @import './utils/breakpoints';
 @import './utils/colors';
 
@@ -58,6 +59,12 @@ body{
       right: .7rem;
       transition: all ease-in-out 250ms;
       color: $the-white-wall-looks-dirty;
+  }
+
+  &__iconLoader {
+    margin: 100px auto;
+    @include areaOf(65px);
+    @include spinAnimation(1s);
   }
 
 }

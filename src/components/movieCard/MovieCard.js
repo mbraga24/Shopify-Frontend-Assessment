@@ -4,24 +4,31 @@ import ButtonProp from '../buttonProp/ButtonProp';
 
 import './Styles.scss';
 
-const MovieCard = ({ movie, checkMovieInList, addMovie, disableBtns, defaultBtnColor }) => {
+const MovieCard = ({ movie, movieAction, btnName, iconName, loadReady = false, disableBtns }) => {
+  
+  const loader = <img className="App__iconLoader" alt="loading" src="./assets/loading.png" />
+  const list = localStorage.getItem("list") ? JSON.parse(localStorage.getItem("list")) : []  
+  let src = movie.Poster !== "N/A" ? movie.Poster : "./assets/video-placeholder.jpg";
+
+  const checkMovieInList = movieId => {
+    return !!list.find(mv => mv.imdbID === movieId);
+  }
+
   return (
-    <Grid.Column className="MovieCard">
       <Card
-        image={movie.Poster !== "N/A" ? movie.Poster : "./assets/video-placeholder.jpg"}
+        className="movieCard"
+        image={loadReady ? loader : src}
         header={movie.Title}
         meta={movie.Year}
         extra={
           <ButtonProp 
-            color={"blue"}
-            btnName={"Nominate"}
-            icon="add"
-            handleSubmit={() => addMovie(movie)} 
+            btnName={btnName}
+            icon={iconName}
+            handleSubmit={() => movieAction(movie)} 
             disable={disableBtns ? true : checkMovieInList(movie.imdbID)}
           />
         }
       />
-    </Grid.Column>
   )
 }
 

@@ -1,7 +1,13 @@
+
 @mixin spinAnimation($duration) {
   animation: spin $duration linear infinite;
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+}
+
+@mixin areaOf($size) {
+  height: $size;
+  width: $size;
 }
