@@ -8,14 +8,14 @@ Initial page
 Searching for movies for nomination using carousel
 ![Preview-2](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230318/General%20Projects/2Shopify-Frontend-Assessment_hzh1qm.png)
 
-Nominated movies display using carousel - User can remove movie from the list
+Nominated movies display using carousel - User can remove movies from the list
 ![Preview-4](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230318/General%20Projects/0Shopify-Frontend-Assessment_xaohlt.png)
 
-When user chooses the last movie for nomination a message is displayed to alert the user and "Nomination" buttons will be disabled
-![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230589/General%20Projects/4Shopify-Frontend-Assessment_pxdcwd.png)
-
-Displaying movies without poster with default image
+Displaying movies with default image for movies withour poster
 ![Preview-6](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230317/General%20Projects/1Shopify-Frontend-Assessment_wmrxpm.png)
+
+A message is displayed when user chooses the last movie nominee. All "Nomination" buttons will be disabled
+![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230815/General%20Projects/4Shopify-Frontend-Assessment_vwfs8t.png)
 
 <br />
 
@@ -38,11 +38,11 @@ Displaying movies without poster with default image
 
 A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-We'd like a simple to use interface that makes it easy to:
-Search OMDB and display the results (movies only)
-Add a movie from the search results to our nomination list
-View the list of films already nominated
-Remove a nominee from the nomination list
+#### We'd like a simple to use interface that makes it easy to:
+- Search OMDB and display the results (movies only)
+- Add a movie from the search results to our nomination list
+- View the list of films already nominated
+- Remove a nominee from the nomination list
 
 [Back To The Top](#frontend-assessment)
 
@@ -80,5 +80,4 @@ Remove a nominee from the nomination list
 - LinkedIn - [Marlon Braga](https://www.linkedin.com/in/marlon-braga/)
 - Portfolio - [Currently unavailable and under construction](https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548)
 
-[Back To The Top](#sirius)
-s
+[Back To The Top](#frontend-assessment)
