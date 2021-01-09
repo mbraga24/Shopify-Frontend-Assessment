@@ -18,9 +18,9 @@ A message is displayed when user chooses the last movie nominee. All "Nomination
 ![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230815/General%20Projects/4Shopify-Frontend-Assessment_vwfs8t.png)
 
 <br />
-
+<!---
 ### Checkout the project [demo here](needs-to-work-ondemo)
-
+---> 
 <br />
 
 ---
@@ -43,6 +43,17 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 - Add a movie from the search results to our nomination list
 - View the list of films already nominated
 - Remove a nominee from the nomination list
+
+[Back To The Top](#frontend-assessment)
+
+## Technical requirements
+
+- Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
+- Each search result should list at least its title, year of release and a button to nominate that film.
+- Updates to the search terms should update the result list
+- Movies in search results can be added and removed from the nomination list.
+- If a search result has already been nominated, disable its nominate button.
+- Display a banner when the user has 5 nominations.
 
 [Back To The Top](#frontend-assessment)
 
