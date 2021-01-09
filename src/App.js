@@ -17,6 +17,11 @@ function App() {
   const [ showMessage, setShowMessage ] = useState(false);
   const [ disableBtns, setDisableBtns ] = useState(false)
   const [ loading, setLoading ] = useState(false);
+  const loader = <img className="App__iconLoader" alt="loading" src="./assets/loading.png" />
+
+  const scrollTop = () => {
+    window.scrollToTop(0, 0)
+  }
 
   const dismissMessage = () => {
     setShowMessage(false)
@@ -75,30 +80,32 @@ function App() {
   return (
     <div className="App">
       <div id="mainWrapper">
-        <p className="App__title">Pick Your Top 5 Movies</p>
+        <p className="App__title">Choose Your Top 5 Movies</p>
         <SearchBar 
           findMovies={findMovies} 
           icon={<FontAwesomeIcon icon={faFilm} size="4x" />} />
         <Nominations 
           nominatedList={nominatedList} 
           removeFromNominatedList={removeFromNominatedList}
-          icon={<FontAwesomeIcon icon={faAward} size="4x" />} />
+          loader={loader} 
+           />
           {
             showMessage && 
             <Message 
               header={"All set!"} 
               message={"It seems like you have all your top 5 movies. You can always remove from your list and pick another another one."} 
-              dismissMessage={dismissMessage}
-            />
+              dismissMessage={dismissMessage} />
           }
         <SearchResults
           movieResults={movieResults} 
           addToNominatedList={addToNominatedList} 
           disableBtns={disableBtns}
-          loading={loading} />
+          loading={loading} 
+          loader={loader} 
+           />
       </div>
 
-      <span className='App__upbtn'><FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" /></span>
+      <span className='App__upbtn' onClick={() => scrollTop()}><FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" /></span>
     </div>
   );
 }

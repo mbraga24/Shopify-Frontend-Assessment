@@ -17,9 +17,10 @@ const SearchBar = ({ findMovies, icon }) => {
 
   return (
     <div className="searchBar">
+      <Form className="searchBar__form">
       <span className="searchBar__icon">{icon}</span>
-      <Form className="searchBar__field">
         <Form.Input  
+          className="searchBar__input"
           placeholder="Search Movies"
           onChange={handleInput} 
         />

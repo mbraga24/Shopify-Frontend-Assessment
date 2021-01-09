@@ -1,35 +1,38 @@
+@import '../../styles/utils/breakpoints';
 @import '../../styles/utils/colors';
 @import '../../styles/utils/mixins';
 
 .nominations {
-  height: 100%;
-
   &__header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    @media only screen and (max-width: $mobile) {
+      margin-top: 25px;
+    }
   }
 
   &__title {
-    font-size: 22px;
-    margin-left: 10px;
-  }
-
-  &__icon {
+    font-size: 35px;
     color: $a-beautiful-blue-sky;
+
+    @media only screen and (max-width: $tablet) {
+      text-align: center;
+    }
+
+    @media only screen and(max-width: $mobile) {
+      font-size: 30px;
+    }
   }
 
-  &__carouselContainer {
+  &__carousel {
     height: 100%;
   } 
 
-  &__image {
-    @include areaOf(340px);
-  }
+  &__movieTitle, &__movieYear {
+    color: $pool-day;
+  } 
 
-  &__card {
+  &__btnWrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
   }
+
 }

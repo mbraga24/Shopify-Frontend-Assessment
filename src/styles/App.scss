@@ -3,12 +3,13 @@
 @import './utils/colors';
 
 body{
+  margin: 25px;
   background-color: $the-white-wall-looks-dirty;
 }
 
 #mainWrapper {
   max-width: $desktop;
-  margin: 40px auto 80px auto;
+  margin: 0 auto;
 }
 
 .App {

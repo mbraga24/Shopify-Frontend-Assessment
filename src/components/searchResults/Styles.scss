@@ -3,43 +3,35 @@
 
 .searchResults {
   &__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    color: $pool-day;
+    @media only screen and (max-width: $mobile) {
+      margin-top: 50px;
+    }
   }
 
   &__title {
-    text-align: center;
-    font-size: 45px;
-  }
+    font-size: 35px;
+    color: $a-beautiful-blue-sky;
 
-  &__innerWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__carouselContainer {
-    height: 100%;
-  }
-
-  &__gridContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 190px);
-    grid-auto-rows: minmax(20px, auto);
-    row-gap: 1em;
-    column-gap: 1em;
-    justify-content: center; 
-    align-content: center;
-
-    @media only screen and(max-width: $tablet) {
-      grid-template-columns: repeat(3, 180px);
+    @media only screen and (max-width: $tablet) {
+      text-align: center;
     }
 
     @media only screen and(max-width: $mobile) {
-      grid-template-columns: repeat(1, 280px);
+      font-size: 30px;
     }
   }
+
+  &__carousel {
+    height: 100%;
+  }
+
+  &__movieTitle, &__movieYear {
+    color: $pool-day;
+  } 
+
+  &__btnWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
 }

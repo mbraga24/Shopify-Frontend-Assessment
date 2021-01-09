@@ -1,5 +1,10 @@
 @import '../../styles/utils/mixins';
 
 .movieCard {  
-  @include areaOf(340px);
+  // @include areaOf(340px);
+
+  &__btnWrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
