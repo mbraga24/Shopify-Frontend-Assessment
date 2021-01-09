@@ -14,8 +14,8 @@ Nominated movies display using carousel - User can remove movies from the list
 Displaying movies with default image for movies withour poster
 ![Preview-6](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230317/General%20Projects/1Shopify-Frontend-Assessment_wmrxpm.png)
 
-A message is displayed when user chooses the last movie nominee. All "Nomination" buttons will be disabled
-![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230815/General%20Projects/4Shopify-Frontend-Assessment_vwfs8t.png)
+A banner is displayed when user chooses the last nominee. All "Nominate" buttons will be disabled
+![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610231830/General%20Projects/4Shopify-Frontend-Assessment_qxce7g.png)
 
 <br />
 <!---
