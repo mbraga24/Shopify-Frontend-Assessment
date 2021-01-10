@@ -79,7 +79,7 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 
 #### Technologies
 - HTML
-- CSS/SASS
+- CSS/[SASS](https://sass-lang.com/documentation/variables)
 - Javascript
 - React
 
@@ -92,7 +92,7 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 - [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
 
 #### Notes
-Through the code in this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Elements Modifiers), and Sass variables for my breakpoints.
+In this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Element Modifier), and Sass variables.
 
 [Back To The Top](#frontend-assessment)
 
