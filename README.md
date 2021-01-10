@@ -28,6 +28,7 @@ A banner is displayed when user chooses the last nominee. All "Nominate" buttons
 ### Table of Contents
 
 - [The Challenge](#thechallenge)
+- [Technical requirements](#technical-requirements)
 - [Installation](#installation)
 - [References And Technologies](#references-and-technologies)
 - [Author Info](#author-info)
@@ -71,6 +72,8 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 ## References and Technologies
 
 #### Technologies
+- HTML
+- CSS/SASS
 - Javascript
 - React
 
@@ -81,6 +84,9 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 - [React-With-Smooth-Scrolling](https://github.com/do-community/React-With-Smooth-Scrolling)
 - [React-Elastic-Carousel](https://www.npmjs.com/package/react-elastic-carousel)
 - [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
+
+#### Notes
+Through the code in this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Elements Modifiers), and Sass variables for my breakpoints.
 
 [Back To The Top](#frontend-assessment)
 
