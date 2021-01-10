@@ -102,7 +102,7 @@ function App() {
           loader={loader} />
       </div>
 
-      <span className='App__upbtn' onClick={scrollToTop}>
+      <span className='App__upbtn' onClick={scrollToTop}> 
         <FontAwesomeIcon className="App__faAngleUp" icon={faAngleUp} size="4x" />
       </span>
     </div>

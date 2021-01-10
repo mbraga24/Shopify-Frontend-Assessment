@@ -1,8 +1,8 @@
-@import './utils/mixins';
 @import './utils/breakpoints';
 @import './utils/colors';
+@import './utils/mixins';
 
-$borderRadius: 60px;
+$border-radius: 60px;
 
 body{
   margin: 25px;
@@ -17,6 +17,11 @@ body{
 .App {
     @media only screen and (max-width: $mobile) {
       position: relative;
+    }
+
+    &__innerWrapper {
+      display: flex; 
+      justify-content: center;
     }
 
     &__title {
@@ -39,9 +44,9 @@ body{
       @include repeatHW(50px);
       background-color: $batman-blue;
       text-indent:-9999px;
-      -webkit-border-radius: $borderRadius;
-      -moz-border-radius: $borderRadius;
-      border-radius: $borderRadius;
+      -webkit-border-radius: $border-radius;
+      -moz-border-radius: $border-radius;
+      border-radius: $border-radius;
       @media only screen and (max-width: $mobile) {
         display: block;
       }
@@ -53,7 +58,8 @@ body{
 
   &__faAngleUp {
       font-size: 3.5rem;
-      @include repeatHW(4em);
+      width: 4rem;
+      height: 4rem;
       text-align: center;
       position: absolute;
       top: -.2rem;
