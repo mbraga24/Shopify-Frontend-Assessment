@@ -20,7 +20,7 @@ A banner is displayed when user chooses the last nominee. All "Nominate" buttons
 Fixed arrow icon for easy access to return to the top of the page with smooth scrolling
 ![Preview-6](https://res.cloudinary.com/dloh9txdc/image/upload/v1610245735/General%20Projects/5Shopify-Frontend-Assessment_hiu33k.png)
 
-Responsive
+Responsive <br />
 ![Preview-7](https://res.cloudinary.com/dloh9txdc/image/upload/v1610245884/General%20Projects/6Shopify-Frontend-Assessment_lfgnpj.png)
 
 <br />
