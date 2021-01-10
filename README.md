@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Frontend Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Preview 
 
-## Available Scripts
+Initial page
+![Preview-1](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230317/General%20Projects/3Shopify-Frontend-Assessment_ukd65m.png)
 
-In the project directory, you can run:
+Searching for movies for nomination using carousel
+![Preview-2](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230318/General%20Projects/2Shopify-Frontend-Assessment_hzh1qm.png)
 
-### `yarn start`
+Nominated movies display using carousel - User can remove movies from the list
+![Preview-4](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230318/General%20Projects/0Shopify-Frontend-Assessment_xaohlt.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Displaying movies with default image for movies withour poster
+![Preview-6](https://res.cloudinary.com/dloh9txdc/image/upload/v1610230317/General%20Projects/1Shopify-Frontend-Assessment_wmrxpm.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A banner is displayed when user chooses the last nominee. All "Nominate" buttons will be disabled
+![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610231830/General%20Projects/4Shopify-Frontend-Assessment_qxce7g.png)
 
-### `yarn test`
+<br />
+<!---
+### Checkout the project [demo here](needs-to-work-ondemo)
+---> 
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+### Table of Contents
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [The Challenge](#thechallenge)
+- [Technical requirements](#technical-requirements)
+- [Installation](#installation)
+- [References And Technologies](#references-and-technologies)
+- [Author Info](#author-info)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## The Challenge
 
-### `yarn eject`
+A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### We'd like a simple to use interface that makes it easy to:
+- Search OMDB and display the results (movies only)
+- Add a movie from the search results to our nomination list
+- View the list of films already nominated
+- Remove a nominee from the nomination list
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Back To The Top](#frontend-assessment)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technical requirements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
+- Each search result should list at least its title, year of release and a button to nominate that film.
+- Updates to the search terms should update the result list
+- Movies in search results can be added and removed from the nomination list.
+- If a search result has already been nominated, disable its nominate button.
+- Display a banner when the user has 5 nominations.
 
-## Learn More
+[Back To The Top](#frontend-assessment)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation
 
-### Code Splitting
+1. Fork and clone the repo
+1. npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Back To The Top](#sirius)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## References and Technologies
 
-### Making a Progressive Web App
+#### Technologies
+- HTML
+- CSS/SASS
+- Javascript
+- React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Libraries
+- [Semantic UI React](https://react.semantic-ui.com/)
 
-### Advanced Configuration
+#### Packages
+- [React-With-Smooth-Scrolling](https://github.com/do-community/React-With-Smooth-Scrolling)
+- [React-Elastic-Carousel](https://www.npmjs.com/package/react-elastic-carousel)
+- [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Notes
+Through the code in this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Elements Modifiers), and Sass variables for my breakpoints.
 
-### Deployment
+[Back To The Top](#frontend-assessment)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `yarn build` fails to minify
+## Author Info
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- LinkedIn - [Marlon Braga](https://www.linkedin.com/in/marlon-braga/)
+- Portfolio - [Currently unavailable and under construction](https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548)
+
+[Back To The Top](#frontend-assessment)
