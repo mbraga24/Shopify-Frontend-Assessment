@@ -17,6 +17,12 @@ Displaying movies with default image for movies withour poster
 A banner is displayed when user chooses the last nominee. All "Nominate" buttons will be disabled
 ![Preview-5](https://res.cloudinary.com/dloh9txdc/image/upload/v1610231830/General%20Projects/4Shopify-Frontend-Assessment_qxce7g.png)
 
+Fixed arrow icon for easy access to return to the top of the page with smooth scrolling
+![Preview-6](https://res.cloudinary.com/dloh9txdc/image/upload/v1610245735/General%20Projects/5Shopify-Frontend-Assessment_hiu33k.png)
+
+Responsive <br />
+![Preview-7](https://res.cloudinary.com/dloh9txdc/image/upload/v1610245884/General%20Projects/6Shopify-Frontend-Assessment_lfgnpj.png)
+
 <br />
 <!---
 ### Checkout the project [demo here](needs-to-work-ondemo)
@@ -73,7 +79,7 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 
 #### Technologies
 - HTML
-- CSS/SASS
+- [CSS/SASS](https://sass-lang.com/documentation/variables)
 - Javascript
 - React
 
@@ -86,7 +92,7 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 - [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
 
 #### Notes
-Through the code in this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Elements Modifiers), and Sass variables for my breakpoints.
+In this project I used mixins to avoid repetition on my .scss files, I followed the [BEM methodology](http://getbem.com/introduction/) (Block Element Modifier), and Sass variables.
 
 [Back To The Top](#frontend-assessment)
 
