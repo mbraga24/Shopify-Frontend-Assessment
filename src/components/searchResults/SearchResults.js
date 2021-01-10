@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Card, Image, Divider } from 'semantic-ui-react'
 import ButtonProp from '../buttonProp/ButtonProp';
+import breakPoints from '../../Library/carouselBreakpoints';
+import { Card, Image, Divider } from 'semantic-ui-react'
 
 import Carousel from 'react-elastic-carousel';
 import './Styles.scss';
 
 const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, loading, loader }) => {
 
-  let searchResultsHeader
+  let searchResultsHeader;
   let searchResultsBody;
-  const [ showList, setShowList ]   = useState(false)
-
-  const breakPoints = [
-    {width: 1, itemsToShow: 1},
-    {width: 538, itemsToShow: 2},
-    {width: 768, itemsToShow: 3},
-    {width: 1200, itemsToShow: 4}
-  ]
+  const [ showList, setShowList ]   = useState(false);
 
   useEffect(() => {
     if (movieResults.length > 0) {
-      setShowList(true)
+      setShowList(true);
     } else {
-      setShowList(false)
+      setShowList(false);
     }
   }, [movieResults])
 
@@ -66,7 +60,7 @@ const SearchResults = ({ movieResults = [], addToNominatedList, disableBtns, loa
   if (loading) {
     searchResultsBody = loader;
   } else {
-    searchResultsBody = displayMovies()
+    searchResultsBody = displayMovies();
   }
 
   return (

@@ -1,5 +1,6 @@
 @import '../../styles/utils/breakpoints';
 @import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
 
 .searchResults {
   &__header {
@@ -30,8 +31,7 @@
   } 
 
   &__btnWrapper {
-    display: flex;
-    justify-content: center;
+    @include alignHorizontally()
   }
 
 }

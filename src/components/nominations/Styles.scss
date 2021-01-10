@@ -31,8 +31,7 @@
   } 
 
   &__btnWrapper {
-    display: flex;
-    justify-content: center;
+    @include alignHorizontally();
   }
 
 }

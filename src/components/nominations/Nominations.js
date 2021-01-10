@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Image, Divider } from 'semantic-ui-react'
 import ButtonProp from '../buttonProp/ButtonProp';
+import breakPoints from '../../Library/carouselBreakpoints';
+import { Card, Image, Divider } from 'semantic-ui-react'
 
 import Carousel from 'react-elastic-carousel';
 import './Styles.scss';
 
-const Nominations = ({ nominatedList = [], removeFromNominatedList, icon, loader }) => {
+const Nominations = ({ nominatedList = [], removeFromNominatedList, loader }) => {
 
   let nominationBody;
   let nominationHeader;
-  const [ localStorageLoad, setLocalStorageLoad ] = useState(true)
-  const [ showList, setShowList ]   = useState(false)
-
-  const breakPoints = [
-    {width: 1, itemsToShow: 1},
-    {width: 538, itemsToShow: 2},
-    {width: 768, itemsToShow: 3},
-    {width: 1200, itemsToShow: 4}
-  ]
+  const [ showList, setShowList ]   = useState(false);
+  const [ localStorageLoad, setLocalStorageLoad ] = useState(true);
 
   const removeMovie = movie => {
-    removeFromNominatedList(movie)
+    removeFromNominatedList(movie);
   }
 
   const displayNominatedList = () => {
@@ -48,15 +42,15 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon, loader
 
   useEffect(() => {
     if (nominatedList.length > 0) {
-      setShowList(true)
+      setShowList(true);
     } else {
-      setShowList(false)
+      setShowList(false);
     }
   }, [nominatedList])
 
   useEffect(() => {
     setTimeout(() => {
-      setLocalStorageLoad(false)
+      setLocalStorageLoad(false);
     }, 1000)
   }, [localStorageLoad])
 
@@ -64,7 +58,7 @@ const Nominations = ({ nominatedList = [], removeFromNominatedList, icon, loader
                                     <h2 className="nominations__title">Your nominations</h2>
                                     <Divider/>
                                   </div>
-  nominationBody = displayNominatedList() 
+  nominationBody = displayNominatedList();
 
   return (
       <div className="nominations">

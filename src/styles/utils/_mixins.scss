@@ -1,4 +1,3 @@
-
 @mixin spinAnimation($duration) {
   animation: spin $duration linear infinite;
   @keyframes spin {
@@ -7,7 +6,18 @@
   }
 }
 
-@mixin areaOf($size) {
+@mixin repeatHW($size) {
   height: $size;
   width: $size;
+}
+
+@mixin alignHorizontally() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin alignCenter() {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }

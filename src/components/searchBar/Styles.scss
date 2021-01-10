@@ -1,11 +1,10 @@
 @import '../../styles/utils/breakpoints';
 @import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
 
 .searchBar {
   height: 150px;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
+  @include alignCenter();
   
   @media only screen and (max-width: $tablet) {
     margin-top: 25px;
@@ -13,9 +12,7 @@
 
   &__form {
     width: 500px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
+    @include alignCenter();
     
     @media only screen and (max-width: $tablet) {
       display: block;

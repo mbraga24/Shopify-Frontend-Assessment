@@ -2,6 +2,8 @@
 @import './utils/breakpoints';
 @import './utils/colors';
 
+$borderRadius: 60px;
+
 body{
   margin: 25px;
   background-color: $the-white-wall-looks-dirty;
@@ -34,13 +36,12 @@ body{
       right:10px;
       bottom:10px;
       cursor:pointer;
-      width:50px;
-      height:50px;
+      @include repeatHW(50px);
       background-color: $batman-blue;
       text-indent:-9999px;
-      -webkit-border-radius:60px;
-      -moz-border-radius:60px;
-      border-radius:60px;
+      -webkit-border-radius: $borderRadius;
+      -moz-border-radius: $borderRadius;
+      border-radius: $borderRadius;
       @media only screen and (max-width: $mobile) {
         display: block;
       }
@@ -52,8 +53,7 @@ body{
 
   &__faAngleUp {
       font-size: 3.5rem;
-      width: 4rem;
-      height: 4rem;
+      @include repeatHW(4em);
       text-align: center;
       position: absolute;
       top: -.2rem;
@@ -64,7 +64,7 @@ body{
 
   &__iconLoader {
     margin: 100px auto;
-    @include areaOf(65px);
+    @include repeatHW(65px);
     @include spinAnimation(1s);
   }
 

@@ -11,11 +11,13 @@ const ButtonProp = ({ header, message, dismissMessage }) => {
 
   return (
     <Message
+      className="message"
       positive
       onDismiss={handleDismiss}
-      header={header}
-      content={message}
-    />
+    >
+      <Message.Header>{header}</Message.Header>
+      <p className="message__text">{message}</p>
+    </Message>
   )
 }
 

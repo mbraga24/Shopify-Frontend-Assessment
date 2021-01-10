@@ -35,7 +35,7 @@ function App() {
     }, [5000])
   }, [])
   
-  const findMovies = useCallback((term) => {
+  const findMovies = useCallback(term => {
     setLoading(true)
     let searchTerm = term.split(" ").join("%20");
 
@@ -45,8 +45,6 @@ function App() {
       if (data.Response === "True") {
         setLoading(false);
         setMovieResults(data.Search);
-      } else {
-        console.log("NOT FOUND");
       }
     });
   }, [])
@@ -54,7 +52,7 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("list")) {
       let myList = JSON.parse(localStorage.getItem("list"));
-      setNominatedList([...myList]);
+      setNominatedList(myList);
     }
   }, [])
 
@@ -69,8 +67,8 @@ function App() {
 
   const removeFromNominatedList = movie => {
     const filteredList = nominatedList.filter(mv => mv.imdbID !== movie.imdbID);
-    setNominatedList([...filteredList]);
-    localStorage.setItem("list", JSON.stringify([...filteredList]));
+    setNominatedList(filteredList);
+    localStorage.setItem("list", JSON.stringify(filteredList));
   }
 
   const addToNominatedList = movie => {
@@ -93,7 +91,7 @@ function App() {
             showMessage && 
             <Message 
               header={"All set!"} 
-              message={"It seems like you have all your top 5 movies. You can always remove from your list and pick another another one."} 
+              message={"It seems like you have all of your top 5 movies. You can always remove from your list and choose a new one."} 
               dismissMessage={dismissMessage} />
           }
         <SearchResults
