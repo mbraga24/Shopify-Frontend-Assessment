@@ -79,7 +79,7 @@ A webpage that can search OMDB for movies, and allow the user to save their favo
 
 #### Technologies
 - HTML
-- CSS/[SASS](https://sass-lang.com/documentation/variables)
+- [CSS/SASS](https://sass-lang.com/documentation/variables)
 - Javascript
 - React
 
