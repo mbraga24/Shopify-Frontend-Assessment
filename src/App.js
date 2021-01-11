@@ -39,7 +39,7 @@ function App() {
     setLoading(true)
     let searchTerm = term.split(" ").join("%20");
 
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=880b9cc1&s=${searchTerm}`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=880b9cc1&s=${searchTerm}`)
     .then(r => r.json())
     .then(data => {
       if (data.Response === "True") {
