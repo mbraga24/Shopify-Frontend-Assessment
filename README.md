@@ -25,7 +25,7 @@ Responsive <br />
 
 <br />
 
-### Checkout the project [here](https://film5.netlify.app/)
+### Checkout the project [here](https://film5.netlify.app/) :point_left::tada:
 
 <br />
 
