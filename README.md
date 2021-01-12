@@ -24,7 +24,9 @@ Responsive <br />
 ![Preview-7](https://res.cloudinary.com/dloh9txdc/image/upload/v1610245884/General%20Projects/6Shopify-Frontend-Assessment_lfgnpj.png)
 
 <br />
+
 ### Checkout the project [here](https://film5.netlify.app/)
+
 <br />
 
 ---
